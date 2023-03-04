@@ -1,27 +1,37 @@
 // Метод для преобразования целого числа из десятичной системы в двоичную
 String decimalToBinary(int decimal) {
-  String binary = '';
+  List<int> binaryList = [];
+  bool isNegative = decimal < 0;
+  decimal = isNegative ? -decimal : decimal;
 
-  while (decimal > 0) {
-    binary = '${decimal % 2}$binary';
-    decimal ~/= 2;
+  if (decimal == 0) {
+    return '0';
   }
-
-  return binary;
+  while (decimal > 0) {
+    binaryList.add(decimal % 2);
+    decimal = decimal ~/ 2;
+  }
+  String binaryString = binaryList.reversed.join();
+  return isNegative ? '-$binaryString' : binaryString;
 }
 
 // Метод для преобразования целого числа из двоичной системы в десятичную
 int binaryToDecimal(String binary) {
+  bool isNegative = false;
   int decimal = 0;
   int base = 1;
-  int length = binary.length;
 
-  for (int i = length - 1; i >= 0; i--) {
+  if (binary[0] == '-') {
+    isNegative = true;
+    binary = binary.substring(1);
+  }
+
+  for (int i = binary.length - 1; i >= 0; i--) {
     if (binary[i] == '1') {
       decimal += base;
     }
     base *= 2;
   }
 
-  return decimal;
+  return isNegative ? -decimal : decimal;
 }

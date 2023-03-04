@@ -10,13 +10,19 @@ import 'package:dart_basics/task8.dart';
 void main(List<String> arguments) {
   print('Task 1');
   print(findNOD(3, 18));
+  // print(findNOD(-3, -18));
   print(findNOD(12, 30));
   print(findNOK(3, 9));
   print(findNOK(24, 72));
+  // print(findNOK(-24, 72));
+  print(primeFactors(52));
+  // print(primeFactors(-52));
 
   print('Task 2');
-  print(decimalToBinary(35));
+  print(decimalToBinary(42));
+  print(decimalToBinary(-42));
   print(binaryToDecimal('100011'));
+  print(binaryToDecimal('-100011'));
 
   print('Task 3');
   print(findNumbersInString('dog cat 1 me you 2 -3.4 hello +1.3'));
@@ -41,8 +47,7 @@ void main(List<String> arguments) {
   );
 
   print('Task 7');
-  num cubeRoot = 27.nthRoot(3);
-  print('The cube root of 27 is $cubeRoot');
+  print(144.nthRoot(2));
 
   print('Task 8');
   var adminUser = AdminUser('admin@example.com');
